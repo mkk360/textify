@@ -2,7 +2,7 @@
 
 > Transform your text into stunning animated experiences with 20+ professionally crafted animation styles.
 
-[![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)](https://github.com/mkk360/textify)
+[![Version](https://img.shields.io/badge/version-1.0.3-blue.svg)](https://github.com/mkk360/textify)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![GSAP](https://img.shields.io/badge/GSAP-3.0+-orange.svg)](https://greensock.com/gsap/)
 [![Size](https://img.shields.io/badge/size-12kb-brightgreen.svg)](dist/textify.min.js)
@@ -24,7 +24,7 @@ npm install textify-gsap
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
 
 <!-- Include Textify -->
-<script src="https://cdn.jsdelivr.net/npm/textify-gsap@1.0.2/dist/textify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/textify-gsap@1.0.3/dist/textify.min.js"></script>
 ```
 
 ### Basic Usage
