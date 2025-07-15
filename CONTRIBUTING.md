@@ -7,7 +7,7 @@ Thank you for your interest in contributing to Textify! We welcome contributions
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/yourusername/textify.git
+   git clone https://github.com/mkk360/textify.git
    cd textify
    ```
 3. **Install dependencies**:

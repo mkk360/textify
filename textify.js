@@ -1,7 +1,7 @@
 /*!
  * Textify v1.0.0
  * Advanced GSAP SplitText Animation Plugin
- * https://github.com/yourusername/textify
+ * https://github.com/mkk360/textify
  * 
  * Copyright (c) 2025 Your Name
  * Released under the MIT License

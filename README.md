@@ -2,7 +2,7 @@
 
 > Transform your text into stunning animated experiences with 20+ professionally crafted animation styles.
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/textify)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/mkk360/textify)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![GSAP](https://img.shields.io/badge/GSAP-3.0+-orange.svg)](https://greensock.com/gsap/)
 [![Size](https://img.shields.io/badge/size-12kb-brightgreen.svg)](dist/textify.min.js)
@@ -244,7 +244,7 @@ Textify.init({
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/textify.git
+git clone https://github.com/mkk360/textify.git
 cd textify
 
 # Install dependencies
@@ -284,8 +284,8 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ### Issues & Feature Requests
 
-- 🐛 [Report a Bug](https://github.com/yourusername/textify/issues/new?template=bug_report.md)
-- 💡 [Request a Feature](https://github.com/yourusername/textify/issues/new?template=feature_request.md)
+- 🐛 [Report a Bug](https://github.com/mkk360/textify/issues/new?template=bug_report.md)
+- 💡 [Request a Feature](https://github.com/mkk360/textify/issues/new?template=feature_request.md)
 
 ## 📄 License
 
@@ -311,5 +311,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 </p>
 
 <p align="center">
-  <a href="https://github.com/yourusername/textify">⭐ Star this repository</a> if you found it helpful!
+  <a href="https://github.com/mkk360/textify">⭐ Star this repository</a> if you found it helpful!
 </p>
