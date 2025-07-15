@@ -105,7 +105,7 @@ Textify.addStyle('myStyle', config);
 
 ### NPM Package
 - Package name: `textify-gsap`
-- Version: `1.0.0`
+- Version: `1.0.2`
 - Dependencies: GSAP 3.0+
 - Size: ~12KB minified
 - Module formats: UMD, ES6

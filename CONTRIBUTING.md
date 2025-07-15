@@ -127,7 +127,7 @@ If applicable, add screenshots to help explain your problem.
 - Browser: [e.g. Chrome 91]
 - OS: [e.g. macOS 12]
 - GSAP Version: [e.g. 3.12.2]
-- Textify Version: [e.g. 1.0.0]
+- Textify Version: [e.g. 1.0.2]
 
 **Additional Context**
 Add any other context about the problem here.
