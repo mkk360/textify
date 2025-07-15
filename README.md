@@ -307,7 +307,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/yourusername">Your Name</a>
+  Made with ❤️ by <a href="https://github.com/mkk360">Md. Mehadi Hassan</a>
 </p>
 
 <p align="center">

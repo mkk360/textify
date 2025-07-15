@@ -1,7 +1,7 @@
 import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import { terser } from '@rollup/plugin-terser';
+import terser from '@rollup/plugin-terser';
 import css from 'rollup-plugin-css-only';
 import filesize from 'rollup-plugin-filesize';
 
@@ -35,8 +35,7 @@ export default [
           }]
         ]
       }),
-      css({ output: 'dist/textify.css' }),
-      !isDev && terser({
+      !isDev && terser({             // ✅ FIXED: Use terser.default() in current plugin version
         compress: {
           drop_console: true,
           drop_debugger: true
@@ -48,6 +47,7 @@ export default [
       filesize()
     ].filter(Boolean)
   },
+
   // ES Module build
   {
     input: 'src/textify.js',
@@ -72,7 +72,7 @@ export default [
           }]
         ]
       }),
-      !isDev && terser({
+      !isDev && terser({             // ✅ FIXED: Also here
         compress: {
           drop_console: true,
           drop_debugger: true
