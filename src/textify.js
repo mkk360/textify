@@ -1,5 +1,5 @@
 /*************************************************************************
- *  Textify v1.0.3 – Universal Text Animation Library (CDN + ES Module)  *
+ *  Textify v1.0.4 – Universal Text Animation Library (CDN + ES Module)  *
  *  https://github.com/mkk360/textify                                    *
  *  Copyright © 2025 mkk360 – MIT License                                *
  ************************************************************************/
@@ -309,7 +309,7 @@
 // 6. Public API Methods
 // ---------------------------------------------------
   const Textify = {
-    version: '1.0.3',
+    version: '1.0.4',
 
     /**
      * Initialize and auto-animate all matching elements.

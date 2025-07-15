@@ -1164,7 +1164,7 @@ function downloadPackage() {
     console.log('Downloading package');
     const packageInfo = {
         name: "textify-gsap-plugin",
-        version: "1.0.3",
+        version: "1.0.4",
         description: "Professional GSAP SplitText animation plugin with 20 stunning effects",
         files: [
             "textify.js",
