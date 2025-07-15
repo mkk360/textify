@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textify - Live Animation Lab</title>
+    <meta name="description" content="Professional GSAP SplitText animation plugin with 20 stunning text effects. Live preview, customization, and code generation.">
+    <meta name="keywords" content="GSAP, SplitText, animation, text effects, web development, JavaScript, plugin">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Textify</h1>
+                    <span class="version">v1.0.0</span>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-section="gallery">Gallery</button>
+                    <button class="nav-btn" data-section="playground">Playground</button>
+                    <button class="nav-btn" data-section="code">Code</button>
+                    <button class="nav-btn" data-section="performance">Performance</button>
+                    <button class="nav-btn" data-section="download">Download</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="section active" id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Animation Gallery</h2>
+                    <p>Explore all 20 stunning text animation styles</p>
+                </div>
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="dynamic">Dynamic</button>
+                    <button class="filter-btn" data-category="smooth">Smooth</button>
+                    <button class="filter-btn" data-category="3d">3D</button>
+                    <button class="filter-btn" data-category="playful">Playful</button>
+                    <button class="filter-btn" data-category="artistic">Artistic</button>
+                </div>
+                <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+        </section>
+
+        <section class="section" id="playground">
+            <div class="container">
+                <div class="playground-layout">
+                    <div class="playground-left">
+                        <div class="preview-area">
+                            <h3>Live Preview</h3>
+                            <div class="preview-container">
+                                <div class="preview-text" id="previewText">Hello World</div>
+                            </div>
+                            <div class="preview-controls">
+                                <button class="btn btn--primary" id="playAnimation">Play Animation</button>
+                                <button class="btn btn--secondary" id="resetAnimation">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playground-right">
+                        <div class="controls-panel">
+                            <h3>Animation Controls</h3>
+                            <div class="control-group">
+                                <label class="form-label">Animation Style</label>
+                                <select class="form-control" id="styleSelect"></select>
+                            </div>
+                            <div class="control-group">
+                                <label class="form-label">Sample Text</label>
+                                <select class="form-control" id="textSelect"></select>
+                            </div>
+                            <div class="control-group">
+                                <label class="form-label">Custom Text</label>
+                                <input type="text" class="form-control" id="customText" placeholder="Enter your text...">
+                            </div>
+                            <div class="control-group">
+                                <label class="form-label">Duration: <span id="durationValue">1.0</span>s</label>
+                                <input type="range" class="slider" id="durationSlider" min="0.5" max="3.0" step="0.1" value="1.0">
+                            </div>
+                            <div class="control-group">
+                                <label class="form-label">Stagger: <span id="staggerValue">0.05</span>s</label>
+                                <input type="range" class="slider" id="staggerSlider" min="0.01" max="0.2" step="0.01" value="0.05">
+                            </div>
+                            <div class="control-group">
+                                <label class="form-label">Ease</label>
+                                <select class="form-control" id="easeSelect"></select>
+                            </div>
+                            <div class="control-group">
+                                <label class="form-label">Color</label>
+                                <select class="form-control" id="colorSelect"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="code">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Generated Code</h2>
+                    <p>Copy and paste the code for your selected animation</p>
+                </div>
+                <div class="code-tabs">
+                    <button class="code-tab active" data-tab="html">HTML</button>
+                    <button class="code-tab" data-tab="css">CSS</button>
+                    <button class="code-tab" data-tab="js">JavaScript</button>
+                </div>
+                <div class="code-content">
+                    <div class="code-panel active" id="htmlCode">
+                        <button class="copy-btn" onclick="copyCode('htmlCode')">Copy</button>
+                        <pre><code class="language-html" id="htmlCodeContent"></code></pre>
+                    </div>
+                    <div class="code-panel" id="cssCode">
+                        <button class="copy-btn" onclick="copyCode('cssCode')">Copy</button>
+                        <pre><code class="language-css" id="cssCodeContent"></code></pre>
+                    </div>
+                    <div class="code-panel" id="jsCode">
+                        <button class="copy-btn" onclick="copyCode('jsCode')">Copy</button>
+                        <pre><code class="language-javascript" id="jsCodeContent"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="performance">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Performance Monitor</h2>
+                    <p>Real-time performance metrics for your animations</p>
+                </div>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <h3>Frame Rate</h3>
+                        <div class="metric" id="fpsMetric">60</div>
+                        <span class="unit">fps</span>
+                    </div>
+                    <div class="performance-card">
+                        <h3>Animation Duration</h3>
+                        <div class="metric" id="durationMetric">1.0</div>
+                        <span class="unit">seconds</span>
+                    </div>
+                    <div class="performance-card">
+                        <h3>Element Count</h3>
+                        <div class="metric" id="elementMetric">11</div>
+                        <span class="unit">chars</span>
+                    </div>
+                    <div class="performance-card">
+                        <h3>Memory Usage</h3>
+                        <div class="metric" id="memoryMetric">2.3</div>
+                        <span class="unit">MB</span>
+                    </div>
+                </div>
+                <div class="performance-chart">
+                    <canvas id="performanceChart" width="800" height="300"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="download">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Download Textify</h2>
+                    <p>Get the complete plugin package for your projects</p>
+                </div>
+                <div class="download-grid">
+                    <div class="download-card">
+                        <h3>Plugin Files</h3>
+                        <p>Complete JavaScript plugin with all 20 animation styles</p>
+                        <div class="download-buttons">
+                            <a href="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/56f3b400121011453881dbb046630611/a014375b-4781-4f96-a1f1-e07cfb68b697/ab81e635.js" target="_blank" class="btn btn--primary">Download JS</a>
+                            <button class="btn btn--secondary" onclick="downloadCSS()">Download CSS</button>
+                        </div>
+                    </div>
+                    <div class="download-card">
+                        <h3>Documentation</h3>
+                        <p>Complete guide with examples and API reference</p>
+                        <div class="download-buttons">
+                            <a href="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/56f3b400121011453881dbb046630611/248d7340-7250-4de1-9e59-9099bb9ab97e/b3356305.md" target="_blank" class="btn btn--primary">View README</a>
+                            <button class="btn btn--secondary" onclick="downloadDocs()">Download Docs</button>
+                        </div>
+                    </div>
+                    <div class="download-card">
+                        <h3>Package</h3>
+                        <p>NPM package configuration and dependencies</p>
+                        <div class="download-buttons">
+                            <a href="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/56f3b400121011453881dbb046630611/642a1c41-5ad8-4d35-afb1-2d255a4ada55/7ae45ad1.json" target="_blank" class="btn btn--primary">View Package</a>
+                            <button class="btn btn--secondary" onclick="downloadPackage()">Download All</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="installation-guide">
+                    <h3>Quick Installation</h3>
+                    <div class="install-steps">
+                        <div class="install-step">
+                            <h4>1. Include GSAP</h4>
+                            <pre><code class="language-html">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"&gt;&lt;/script&gt;</code></pre>
+                        </div>
+                        <div class="install-step">
+                            <h4>2. Include SplitType</h4>
+                            <pre><code class="language-html">&lt;script src="https://unpkg.com/split-type"&gt;&lt;/script&gt;</code></pre>
+                        </div>
+                        <div class="install-step">
+                            <h4>3. Include Textify</h4>
+                            <pre><code class="language-html">&lt;script src="textify.js"&gt;&lt;/script&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Textify. Professional GSAP SplitText Animation Plugin.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
