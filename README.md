@@ -49,7 +49,7 @@ npm install textify-gsap
 | Style | Class | Effect | Best For |
 |-------|-------|---------|----------|
 | 1 | `textify-style1` | Particle Explosion | Headlines, Impact Text |
-| 2 | `textify-style2` | Explosive Zoom | Call-to-Action, Buttons |
+| 2 | `textify-style2` | Explosive Zoom | CTAs, Feature Launches |
 | 3 | `textify-style3` | Wave Up | Subtitles, Descriptions |
 | 4 | `textify-style4` | 3D Flip | Modern Headings |
 | 5 | `textify-style5` | Bounce Scale | Playful Text |
@@ -67,7 +67,50 @@ npm install textify-gsap
 | 17 | `textify-style17` | Wave Fold | Artistic Text |
 | 18 | `textify-style18` | Sine Spray | Abstract, Creative |
 | 19 | `textify-style19` | 3D Grid | Complex Layouts |
-| 20 | `textify-style20` | Glow Trail | Magical, Fantasy |
+| 20 | `textify-style20` | Glow Trail | Magical Effects |
+| 21 | `textify-style21` | Glow Trail Small | Subtle Effects |
+| 22 | `textify-style22` | Morphing Text | Dynamic Content |
+| 23 | `textify-style23` | Neon Flicker | Retro UI |
+| 24 | `textify-style24` | Liquid Wave | Smooth Transitions |
+| 25 | `textify-style25` | Holographic Shift | Modern UI |
+| 26 | `textify-style26` | Glitch Matrix | Digital Effects |
+| 27 | `textify-style27` | Cinematic Reveal | Movie Titles |
+| 28 | `textify-style28` | Floating Letters | Gentle Motion |
+| 29 | `textify-style29` | Digital Scan | Tech Interfaces |
+| 30 | `textify-style30` | Particle Storm | Dynamic Intros |
+| 31 | `textify-style31` | Vintage Fade | Retro Style |
+| 32 | `textify-style32` | Cyber Grid | Futuristic UI |
+| 33 | `textify-style33` | Elastic Bounce | Fun Interactions |
+| 34 | `textify-style34` | Prism Split | Color Effects |
+| 35 | `textify-style35` | Smoke Reveal | Atmospheric |
+| 36 | `textify-style36` | Quantum Shift | Sci-fi Effects |
+
+### Animation Categories
+
+- **Dynamic Effects (1-5, 22, 26, 30, 36)**: High-impact animations for attention-grabbing elements
+- **Smooth Transitions (6-10, 24, 27, 28)**: Fluid animations for better user experience
+- **Special Effects (11-15, 23, 25, 34, 35)**: Unique visual effects for standout moments
+- **Tech & Digital (16-20, 29, 32)**: Modern effects for technology-focused interfaces
+- **Artistic & Creative (21, 31, 33)**: Stylistic animations for unique visual experiences
+
+### Performance Tiers
+
+🚀 **Light Performance** (Styles 3, 7, 9, 21, 24, 28)
+- Best for mobile and performance-critical pages
+- Minimal GPU usage
+- Smooth on all devices
+
+⚡ **Medium Performance** (Styles 1, 2, 4, 8, 10, 15, 22, 27, 31, 33)
+- Balanced performance and visual impact
+- Moderate resource usage
+- Works well on most devices
+
+💫 **Heavy Effects** (Styles 5, 6, 11-14, 16-20, 23, 25, 26, 29, 30, 32, 34-36)
+- Rich animations for desktop-focused experiences
+- Higher GPU usage
+- Best for powerful devices
+
+> 💡 **New in v4.0.0**: Added 16 new professional animation styles (21-36) including digital effects, vintage styles, and modern transitions.
 
 ## 🔧 Advanced Configuration
 

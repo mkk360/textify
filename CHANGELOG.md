@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## [4.0.0] - 2025-07-17
 
 ### 🚨 Breaking Changes
+- Added 16 new professional animation styles (21-36) including digital effects, vintage styles, and modern transitions
 - Complete codebase refactor.
 - Removed deprecated methods.
 - Changed core animation engine for better performance.
