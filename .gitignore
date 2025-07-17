@@ -6,5 +6,4 @@ docs/
 publish.md
 PACKAGE-SUMMARY.md
 CONTRIBUTING.md
-rollup.config.js
 update-version.js
