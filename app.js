@@ -1,1287 +1,1828 @@
-// Animation data
-const animations = [
-    {
-        id: "style1",
-        name: "Particle Explosion",
-        class: "textify-style1",
-        description: "Characters explode from random directions with rotation and scaling",
-        category: "dynamic",
-        complexity: "High",
-        bestFor: "Headlines, Impact Text",
-        defaultConfig: {
-            duration: 1.8,
-            stagger: 0.15,
-            ease: "power3.out"
-        }
-    },
-    {
-        id: "style2",
-        name: "Explosive Zoom",
-        class: "textify-style2",
-        description: "Characters zoom in with elastic bounce and rotation",
-        category: "dynamic",
-        complexity: "High",
-        bestFor: "Call-to-Action, Buttons",
-        defaultConfig: {
-            duration: 1.8,
-            stagger: 0.08,
-            ease: "elastic.out(1, 0.3)"
-        }
-    },
-    {
-        id: "style3",
-        name: "Wave Up",
-        class: "textify-style3",
-        description: "Smooth wave motion from bottom to top with skew effect",
-        category: "smooth",
-        complexity: "Medium",
-        bestFor: "Subtitles, Descriptions",
-        defaultConfig: {
-            duration: 1.2,
-            stagger: 0.04,
-            ease: "power2.out"
-        }
-    },
-    {
-        id: "style4",
-        name: "3D Flip",
-        class: "textify-style4",
-        description: "Three-dimensional rotation with depth and perspective",
-        category: "3d",
-        complexity: "High",
-        bestFor: "Modern Headings",
-        defaultConfig: {
-            duration: 1.4,
-            stagger: 0.06,
-            ease: "back.out(1.7)"
-        }
-    },
-    {
-        id: "style5",
-        name: "Bounce Scale",
-        class: "textify-style5",
-        description: "Playful bounce effect with vertical movement",
-        category: "playful",
-        complexity: "Medium",
-        bestFor: "Playful Text",
-        defaultConfig: {
-            duration: 1.6,
-            stagger: 0.05,
-            ease: "bounce.out"
-        }
-    },
-    {
-        id: "style6",
-        name: "Spiral Zoom",
-        class: "textify-style6",
-        description: "Rotating spiral effect while scaling from center",
-        category: "dynamic",
-        complexity: "High",
-        bestFor: "Logo Text",
-        defaultConfig: {
-            duration: 1.3,
-            stagger: 0.05,
-            ease: "power4.out"
-        }
-    },
-    {
-        id: "style7",
-        name: "Stretch Left",
-        class: "textify-style7",
-        description: "Horizontal stretch with elastic easing from left",
-        category: "smooth",
-        complexity: "Medium",
-        bestFor: "Navigation Items",
-        defaultConfig: {
-            duration: 1.5,
-            stagger: 0.07,
-            ease: "elastic.out(1, 0.6)"
-        }
-    },
-    {
-        id: "style8",
-        name: "Float Particles",
-        class: "textify-style8",
-        description: "Random particle-like movement with varied scaling",
-        category: "dynamic",
-        complexity: "High",
-        bestFor: "Background Text",
-        defaultConfig: {
-            duration: 2.0,
-            stagger: 0.02,
-            ease: "power2.out"
-        }
-    },
-    {
-        id: "style9",
-        name: "Typewriter",
-        class: "textify-style9",
-        description: "Sequential reveal with scaling like typewriter effect",
-        category: "smooth",
-        complexity: "Low",
-        bestFor: "Code, Tech Content",
-        defaultConfig: {
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power2.out"
-        }
-    },
-    {
-        id: "style10",
-        name: "Magnetic Pull",
-        class: "textify-style10",
-        description: "Characters attracted from random positions with rotation",
-        category: "dynamic",
-        complexity: "High",
-        bestFor: "Interactive Elements",
-        defaultConfig: {
-            duration: 1.2,
-            stagger: 0.04,
-            ease: "power3.out"
-        }
-    },
-    {
-        id: "style11",
-        name: "Flare Burst",
-        class: "textify-style11",
-        description: "Bright flare effect with center-out reveal",
-        category: "dynamic",
-        complexity: "Medium",
-        bestFor: "Announcements",
-        defaultConfig: {
-            duration: 1.4,
-            stagger: 0.1,
-            ease: "expo.out"
-        }
-    },
-    {
-        id: "style12",
-        name: "Ripple Wave",
-        class: "textify-style12",
-        description: "Ripple effect spreading from edges with scaling",
-        category: "smooth",
-        complexity: "Medium",
-        bestFor: "Smooth Reveals",
-        defaultConfig: {
-            duration: 1.6,
-            stagger: 0.12,
-            ease: "power2.inOut"
-        }
-    },
-    {
-        id: "style13",
-        name: "Matrix Fall",
-        class: "textify-style13",
-        description: "Cyberpunk-style falling effect with grayscale filter",
-        category: "artistic",
-        complexity: "High",
-        bestFor: "Cyberpunk, Tech",
-        defaultConfig: {
-            duration: 2.0,
-            stagger: 0.15,
-            ease: "power3.out"
-        }
-    },
-    {
-        id: "style14",
-        name: "Flip Carousel",
-        class: "textify-style14",
-        description: "Carousel-like rotation with varied angles",
-        category: "3d",
-        complexity: "High",
-        bestFor: "Product Names",
-        defaultConfig: {
-            duration: 1.8,
-            stagger: 0.05,
-            ease: "back.out(1.5)"
-        }
-    },
-    {
-        id: "style15",
-        name: "Pulse Glow",
-        class: "textify-style15",
-        description: "Neon glow effect with pulsing animation",
-        category: "dynamic",
-        complexity: "Medium",
-        bestFor: "Neon, Gaming",
-        defaultConfig: {
-            duration: 1.2,
-            stagger: 0.1,
-            ease: "sine.inOut"
-        }
-    },
-    {
-        id: "style16",
-        name: "Stagger Zoom",
-        class: "textify-style16",
-        description: "Sequential zoom from end to start",
-        category: "smooth",
-        complexity: "Low",
-        bestFor: "Lists, Menus",
-        defaultConfig: {
-            duration: 1.0,
-            stagger: 0.1,
-            ease: "power4.in"
-        }
-    },
-    {
-        id: "style17",
-        name: "Wave Fold",
-        class: "textify-style17",
-        description: "Folding wave effect with random positioning and skew",
-        category: "artistic",
-        complexity: "High",
-        bestFor: "Artistic Text",
-        defaultConfig: {
-            duration: 1.7,
-            stagger: 0.14,
-            ease: "elastic.out(1, 0.4)"
-        }
-    },
-    {
-        id: "style18",
-        name: "Sine Spray",
-        class: "textify-style18",
-        description: "Sine wave motion with spray-like distribution",
-        category: "artistic",
-        complexity: "High",
-        bestFor: "Abstract, Creative",
-        defaultConfig: {
-            duration: 2.2,
-            stagger: 0.03,
-            ease: "sine.out"
-        }
-    },
-    {
-        id: "style19",
-        name: "3D Grid",
-        class: "textify-style19",
-        description: "Complex 3D grid transformation with multi-axis rotation",
-        category: "3d",
-        complexity: "Very High",
-        bestFor: "Complex Layouts",
-        defaultConfig: {
-            duration: 2.5,
-            stagger: 0.2,
-            ease: "back.out(2)"
-        }
-    },
-    {
-        id: "style20",
-        name: "Glow Trail",
-        class: "textify-style20",
-        description: "Magical glow trail effect with blur and shadow",
-        category: "artistic",
-        complexity: "High",
-        bestFor: "Magical, Fantasy",
-        defaultConfig: {
-            duration: 2.0,
-            stagger: 0.15,
-            ease: "power2.out"
+/**
+ * Textify Playground Application
+ * Version: 2.0.0
+ * 
+ * Features 36 professional text animation styles:
+ * - Original styles (1-20)
+ * - New artistic effects (21-25)
+ * - Digital effects (26-30)
+ * - Vintage and modern styles (31-36)
+ */
+class TextifyPlayground {
+    constructor() {
+        this.animations = [
+            {
+                id: 'style1',
+                name: 'Particle Explosion',
+                description: 'Characters explode from random directions with rotation and scaling',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-800, 800),
+                        y: () => gsap.utils.random(-800, 800),
+                        rotation: () => gsap.utils.random(-360, 360),
+                        scale: () => gsap.utils.random(0.2, 2),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0, y: 0, rotation: 0, scale: 1, opacity: 1,
+                        duration: duration,
+                        ease: ease,
+                        stagger: { amount: stagger * chars.length, from: 'random' }
+                    });
+                }
+            },
+            {
+                id: 'style2',
+                name: 'Explosive Zoom',
+                description: 'Characters zoom in with elastic bounce and rotation',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scale: 0,
+                        rotation: () => gsap.utils.random(-360, 360),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        scale: 1, rotation: 0, opacity: 1,
+                        duration: duration,
+                        ease: 'elastic.out(1, 0.3)',
+                        stagger: 0.08
+                    });
+                }
+            },
+            {
+                id: 'style3',
+                name: 'Wave Up',
+                description: 'Smooth wave motion from bottom to top with skew effect',
+                category: 'smooth',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        y: 100, skewY: 15, opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        y: 0, skewY: 0, opacity: 1,
+                        duration: 1.2,
+                        ease: 'power2.out',
+                        stagger: 0.04
+                    });
+                }
+            },
+            {
+                id: 'style4',
+                name: '3D Flip',
+                description: 'Three-dimensional rotation with depth and perspective',
+                category: '3d',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        rotationY: 180, rotationX: 90, opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        rotationY: 0, rotationX: 0, opacity: 1,
+                        duration: 1.4,
+                        ease: 'back.out(1.7)',
+                        stagger: 0.06
+                    });
+                }
+            },
+            {
+                id: 'style5',
+                name: 'Bounce Scale',
+                description: 'Playful bounce effect with vertical movement',
+                category: 'playful',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scale: 0.3, y: -80, opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        scale: 1, y: 0, opacity: 1,
+                        duration: 1.6,
+                        ease: 'bounce.out',
+                        stagger: 0.05
+                    });
+                }
+            },
+            {
+                id: 'style6',
+                name: 'Spiral Zoom',
+                description: 'Rotating spiral effect while scaling from center',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scale: 0.1, rotation: 720, opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        scale: 1, rotation: 0, opacity: 1,
+                        duration: 1.3,
+                        ease: 'power4.out',
+                        stagger: 0.05
+                    });
+                }
+            },
+            {
+                id: 'style7',
+                name: 'Stretch Left',
+                description: 'Horizontal stretch with elastic easing from left',
+                category: 'smooth',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: -200, scaleX: 0.1, opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0, scaleX: 1, opacity: 1,
+                        duration: 1.5,
+                        ease: 'elastic.out(1, 0.6)',
+                        stagger: 0.07
+                    });
+                }
+            },
+            {
+                id: 'style8',
+                name: 'Float Particles',
+                description: 'Random particle-like movement with varied scaling',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-400, 400),
+                        y: () => gsap.utils.random(-800, -200),
+                        scale: () => gsap.utils.random(0.5, 1.5),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0, y: 0, scale: 1, opacity: 1,
+                        duration: 2.0,
+                        ease: 'power2.out',
+                        stagger: 0.02
+                    });
+                }
+            },
+            {
+                id: 'style9',
+                name: 'Typewriter',
+                description: 'Sequential reveal with scaling like typewriter effect',
+                category: 'smooth',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scale: 0.5, y: 20, opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        scale: 1, y: 0, opacity: 1,
+                        duration: 0.8,
+                        ease: 'power2.out',
+                        stagger: 0.1
+                    });
+                }
+            },
+            {
+                id: 'style10',
+                name: 'Magnetic Pull',
+                description: 'Characters attracted from random positions with rotation',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-600, 600),
+                        y: () => gsap.utils.random(-300, 300),
+                        scale: 0.7,
+                        rotation: () => gsap.utils.random(-90, 90),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0, y: 0, scale: 1, rotation: 0, opacity: 1,
+                        duration: 1.2,
+                        ease: 'power3.out',
+                        stagger: 0.04
+                    });
+                }
+            },
+            {
+                id: 'style11',
+                name: 'Flare Burst',
+                description: 'Bright flare effect with center-out reveal',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scale: 0.2, opacity: 0
+                    });
+
+                    // Add brightness filter
+                    gsap.set(chars, { filter: 'brightness(200%)' });
+
+                    return gsap.to(chars, {
+                        scale: 1, opacity: 1,
+                        duration: 1.4,
+                        ease: 'expo.out',
+                        stagger: { amount: 1, from: 'center' },
+                        onComplete: () => {
+                            gsap.to(chars, { filter: 'brightness(100%)', duration: 0.5 });
+                        }
+                    });
+                }
+            },
+            {
+                id: 'style12',
+                name: 'Ripple Wave',
+                description: 'Ripple effect spreading from edges with scaling',
+                category: 'smooth',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        y: () => gsap.utils.random(50, 150),
+                        scaleX: 0.5, opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        y: 0, scaleX: 1, opacity: 1,
+                        duration: 1.6,
+                        ease: 'power2.inOut',
+                        stagger: { amount: 1.2, from: 'edges' }
+                    });
+                }
+            },
+            {
+                id: 'style13',
+                name: 'Matrix Fall',
+                description: 'Cyberpunk-style falling effect with grayscale filter',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        y: -500, opacity: 0, skewY: 20
+                    });
+
+                    // Add grayscale filter
+                    gsap.set(chars, { filter: 'grayscale(100%)' });
+
+                    return gsap.to(chars, {
+                        y: 0, opacity: 1, skewY: 0,
+                        duration: 2.0,
+                        ease: 'power3.out',
+                        stagger: { amount: 1.5, from: 'random' },
+                        onComplete: () => {
+                            gsap.to(chars, { filter: 'grayscale(0%)', duration: 1 });
+                        }
+                    });
+                }
+            },
+            {
+                id: 'style14',
+                name: 'Flip Carousel',
+                description: 'Carousel-like rotation with varied angles',
+                category: '3d',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        rotationX: () => gsap.utils.random(90, 360),
+                        scale: 0.4, opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        rotationX: 0, scale: 1, opacity: 1,
+                        duration: 1.8,
+                        ease: 'back.out(1.5)',
+                        stagger: 0.05
+                    });
+                }
+            },
+            {
+                id: 'style15',
+                name: 'Pulse Glow',
+                description: 'Neon glow effect with pulsing animation',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scale: () => gsap.utils.random(0.8, 1.2),
+                        opacity: 0
+                    });
+
+                    // Add cyan glow
+                    gsap.set(chars, { filter: 'drop-shadow(0 0 10px cyan)' });
+
+                    return gsap.to(chars, {
+                        scale: 1, opacity: 1,
+                        duration: 1.2,
+                        ease: 'sine.inOut',
+                        stagger: { amount: 1, from: 'center' }
+                    });
+                }
+            },
+            {
+                id: 'style16',
+                name: 'Stagger Zoom',
+                description: 'Sequential zoom from end to start',
+                category: 'smooth',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scale: 0, opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        scale: 1, opacity: 1,
+                        duration: 1.0,
+                        ease: 'power4.in',
+                        stagger: { each: 0.1, from: 'end' }
+                    });
+                }
+            },
+            {
+                id: 'style17',
+                name: 'Wave Fold',
+                description: 'Folding wave effect with random positioning and skew',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-100, 100),
+                        y: () => gsap.utils.random(-50, 50),
+                        skewX: () => gsap.utils.random(-30, 30),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0, y: 0, skewX: 0, opacity: 1,
+                        duration: 1.7,
+                        ease: 'elastic.out(1, 0.4)',
+                        stagger: { amount: 1.4, from: 'start' }
+                    });
+                }
+            },
+            {
+                id: 'style18',
+                name: 'Sine Spray',
+                description: 'Mathematical sine wave motion',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-300, 300),
+                        y: (i) => Math.sin(i * 0.5) * 200,
+                        scale: () => gsap.utils.random(0.5, 1.5),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0, y: 0, scale: 1, opacity: 1,
+                        duration: 2.2,
+                        ease: 'sine.out',
+                        stagger: 0.03
+                    });
+                }
+            },
+            {
+                id: 'style19',
+                name: '3D Grid',
+                description: 'Complex 3D grid transformation with multi-axis rotation',
+                category: '3d',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        rotationY: () => gsap.utils.random(0, 360),
+                        rotationX: () => gsap.utils.random(0, 360),
+                        z: () => gsap.utils.random(-500, 500),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        rotationY: 0, rotationX: 0, z: 0, opacity: 1,
+                        duration: 2.5,
+                        ease: 'back.out(2)',
+                        stagger: { amount: 2, from: 'center' }
+                    });
+                }
+            },
+            {
+                id: 'style20',
+                name: 'Glow Trail',
+                description: 'Magical glow trail effect with blur and magenta shadow',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-200, 200),
+                        y: () => gsap.utils.random(-200, 200),
+                        opacity: 0,
+                        filter: 'blur(4px) drop-shadow(0 0 20px magenta)'
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0, y: 0, opacity: 1,
+                        duration: 2.0,
+                        ease: 'power2.out',
+                        stagger: { amount: 1.5, from: 'edges' },
+                        filter: 'blur(0px) drop-shadow(0 0 0px magenta)',
+                        onComplete: () => {
+                            gsap.to(chars, { filter: 'blur(0px) drop-shadow(0 0 0px magenta)', duration: 0.5 });
+                        }
+                    });
+                }
+            },
+            // Add these after style20 and before the closing bracket of the animations array
+
+            {
+                id: 'style21',
+                name: 'Glow Trail Small',
+                description: 'Subtle glow trail effect with magenta shadow',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        opacity: 0,
+                        filter: 'blur(4px) drop-shadow(0 0 20px magenta)'
+                    });
+
+                    return gsap.to(chars, {
+                        opacity: 1,
+                        duration: 2.0,
+                        ease: 'power2.out',
+                        stagger: { amount: 1.5, from: 'edges' },
+                        filter: 'blur(0px) drop-shadow(0 0 0px magenta)',
+                        onComplete: () => {
+                            gsap.to(chars, { filter: 'blur(0px) drop-shadow(0 0 0px magenta)', duration: 0.5 });
+                        }
+                    });
+                }
+            },
+            {
+                id: 'style22',
+                name: 'Morphing Text',
+                description: 'Text morphing effect with skew transformation',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scaleY: 0.1,
+                        skewX: 45,
+                        opacity: 0,
+                        transformOrigin: 'center bottom'
+                    });
+
+                    return gsap.to(chars, {
+                        scaleY: 1,
+                        skewX: 0,
+                        opacity: 1,
+                        duration: 1.3,
+                        ease: 'power4.out',
+                        stagger: 0.04
+                    });
+                }
+            },
+            {
+                id: 'style23',
+                name: 'Neon Flicker',
+                description: 'Flickering neon light effect with glow',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        opacity: 0,
+                        filter: 'drop-shadow(0 0 5px #00ff88) brightness(150%)'
+                    });
+
+                    return gsap.to(chars, {
+                        opacity: 1,
+                        duration: 1.5,
+                        ease: 'rough({ template: none.out, strength: 2, points: 20, taper: none, randomize: true, clamp: false })',
+                        stagger: 0.08
+                    });
+                }
+            },
+            {
+                id: 'style24',
+                name: 'Liquid Wave',
+                description: 'Fluid wave motion with elastic effect',
+                category: 'smooth',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        y: 60,
+                        scaleY: 0.3,
+                        skewY: () => gsap.utils.random(-20, 20),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        y: 0,
+                        scaleY: 1,
+                        skewY: 0,
+                        opacity: 1,
+                        duration: 1.8,
+                        ease: 'elastic.out(1, 0.8)',
+                        stagger: { amount: 1.2, from: 'center' }
+                    });
+                }
+            },
+            {
+                id: 'style25',
+                name: 'Holographic Shift',
+                description: 'Holographic effect with color shifting',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-30, 30),
+                        rotationY: () => gsap.utils.random(-45, 45),
+                        opacity: 0,
+                        filter: 'hue-rotate(180deg) saturate(150%)'
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0,
+                        rotationY: 0,
+                        opacity: 1,
+                        filter: 'hue-rotate(0deg) saturate(100%)',
+                        duration: 1.4,
+                        ease: 'power2.out',
+                        stagger: 0.05
+                    });
+                }
+            },
+            {
+                id: 'style26',
+                name: 'Glitch Matrix',
+                description: 'Digital glitch effect with contrast',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-20, 20),
+                        y: () => gsap.utils.random(-10, 10),
+                        opacity: 0,
+                        filter: 'contrast(150%) brightness(120%)'
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0,
+                        y: 0,
+                        opacity: 1,
+                        filter: 'contrast(100%) brightness(100%)',
+                        duration: 1.1,
+                        ease: 'rough({ template: none.out, strength: 1, points: 10, taper: none, randomize: true })',
+                        stagger: 0.02
+                    });
+                }
+            },
+            {
+                id: 'style27',
+                name: 'Cinematic Reveal',
+                description: 'Professional cinematic text reveal',
+                category: 'smooth',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        y: 100,
+                        opacity: 0,
+                        scaleY: 0,
+                        transformOrigin: 'center top'
+                    });
+
+                    return gsap.to(chars, {
+                        y: 0,
+                        opacity: 1,
+                        scaleY: 1,
+                        duration: 2.0,
+                        ease: 'power4.out',
+                        stagger: { amount: 1.5, from: 'start' }
+                    });
+                }
+            },
+            {
+                id: 'style28',
+                name: 'Floating Letters',
+                description: 'Gentle floating animation with rotation',
+                category: 'smooth',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        y: () => gsap.utils.random(-30, 30),
+                        x: () => gsap.utils.random(-20, 20),
+                        rotation: () => gsap.utils.random(-15, 15),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        y: 0,
+                        x: 0,
+                        rotation: 0,
+                        opacity: 1,
+                        duration: 1.6,
+                        ease: 'power2.out',
+                        stagger: 0.06
+                    });
+                }
+            },
+            {
+                id: 'style29',
+                name: 'Digital Scan',
+                description: 'Digital scanning effect with brightness',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scaleX: 0,
+                        opacity: 0,
+                        filter: 'brightness(200%) contrast(150%)',
+                        transformOrigin: 'left center'
+                    });
+
+                    return gsap.to(chars, {
+                        scaleX: 1,
+                        opacity: 1,
+                        filter: 'brightness(100%) contrast(100%)',
+                        duration: 1.2,
+                        ease: 'power3.out',
+                        stagger: 0.03
+                    });
+                }
+            },
+            {
+                id: 'style30',
+                name: 'Particle Storm',
+                description: 'Chaotic particle storm animation',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-500, 500),
+                        y: () => gsap.utils.random(-300, 300),
+                        rotation: () => gsap.utils.random(-180, 180),
+                        scale: () => gsap.utils.random(0.3, 1.5),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0,
+                        y: 0,
+                        rotation: 0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 2.2,
+                        ease: 'power3.out',
+                        stagger: { amount: 2, from: 'random' }
+                    });
+                }
+            },
+            {
+                id: 'style31',
+                name: 'Vintage Fade',
+                description: 'Retro fade effect with sepia tone',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        opacity: 0,
+                        filter: 'sepia(100%) contrast(120%) brightness(90%)',
+                        scale: 0.8
+                    });
+
+                    return gsap.to(chars, {
+                        opacity: 1,
+                        filter: 'sepia(0%) contrast(100%) brightness(100%)',
+                        scale: 1,
+                        duration: 1.8,
+                        ease: 'power2.out',
+                        stagger: 0.1
+                    });
+                }
+            },
+            {
+                id: 'style32',
+                name: 'Cyber Grid',
+                description: 'Cyberpunk-inspired grid animation',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        y: -100,
+                        opacity: 0,
+                        skewY: -10,
+                        filter: 'drop-shadow(0 0 8px cyan) contrast(150%)'
+                    });
+
+                    return gsap.to(chars, {
+                        y: 0,
+                        opacity: 1,
+                        skewY: 0,
+                        filter: 'drop-shadow(0 0 0px cyan) contrast(100%)',
+                        duration: 1.6,
+                        ease: 'power4.out',
+                        stagger: { amount: 1.3, from: 'edges' }
+                    });
+                }
+            },
+            {
+                id: 'style33',
+                name: 'Elastic Bounce',
+                description: 'Playful elastic bounce animation',
+                category: 'playful',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scaleY: 0.1,
+                        y: 50,
+                        opacity: 0,
+                        transformOrigin: 'center bottom'
+                    });
+
+                    return gsap.to(chars, {
+                        scaleY: 1,
+                        y: 0,
+                        opacity: 1,
+                        duration: 1.7,
+                        ease: 'elastic.out(1.2, 0.4)',
+                        stagger: 0.05
+                    });
+                }
+            },
+            {
+                id: 'style34',
+                name: 'Prism Split',
+                description: 'Prismatic color split effect',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        x: () => gsap.utils.random(-15, 15),
+                        opacity: 0,
+                        filter: 'hue-rotate(90deg) saturate(200%)'
+                    });
+
+                    return gsap.to(chars, {
+                        x: 0,
+                        opacity: 1,
+                        filter: 'hue-rotate(0deg) saturate(100%)',
+                        duration: 1.4,
+                        ease: 'power2.out',
+                        stagger: { amount: 1, from: 'center' }
+                    });
+                }
+            },
+            {
+                id: 'style35',
+                name: 'Smoke Reveal',
+                description: 'Smoky text reveal effect',
+                category: 'artistic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        y: 40,
+                        opacity: 0,
+                        filter: 'blur(8px)'
+                    });
+
+                    return gsap.to(chars, {
+                        y: 0,
+                        opacity: 1,
+                        filter: 'blur(0px)',
+                        duration: 1.9,
+                        ease: 'power3.out',
+                        stagger: 0.08
+                    });
+                }
+            },
+            {
+                id: 'style36',
+                name: 'Quantum Shift',
+                description: 'Complex quantum-inspired animation',
+                category: 'dynamic',
+                buildTween: (split, opts) => {
+                    const { duration, stagger, ease } = opts;
+                    const chars = split.chars || [];
+
+                    gsap.set(chars, {
+                        scale: () => gsap.utils.random(0.5, 1.5),
+                        x: () => gsap.utils.random(-40, 40),
+                        y: () => gsap.utils.random(-40, 40),
+                        rotation: () => gsap.utils.random(-90, 90),
+                        opacity: 0
+                    });
+
+                    return gsap.to(chars, {
+                        scale: 1,
+                        x: 0,
+                        y: 0,
+                        rotation: 0,
+                        opacity: 1,
+                        duration: 2.1,
+                        ease: 'power3.out',
+                        stagger: { amount: 1.8, from: 'random' }
+                    });
+                }
+            }
+        ];
+
+        this.currentAnimation = this.animations[0];
+        this.currentTween = null;
+        this.splitText = null;
+        this.isPlaying = false;
+        this.currentView = 'gallery';
+        this.currentCodeType = 'html';
+        this.previewTimeouts = new Map();
+
+        this.init();
+    }
+
+    init() {
+        this.setupNavigation();
+        this.setupGallery();
+        this.setupPlayground();
+        this.setupCode();
+        this.setupDownload();
+        this.setupCSSControls(); // Add this line
+        this.renderGallery();
+        this.populateAnimationSelect();
+        this.generateCode();
+        console.log('Textify Playground initialized successfully');
+    }
+
+    setupNavigation() {
+        const navTabs = document.querySelectorAll('.nav-tab');
+
+        navTabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const view = e.target.dataset.view;
+                this.switchView(view);
+            });
+        });
+    }
+
+    switchView(view) {
+        // Update nav tabs
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.view === view);
+        });
+
+        // Update view sections
+        document.querySelectorAll('.view-section').forEach(section => {
+            section.classList.toggle('active', section.id === view);
+        });
+
+        this.currentView = view;
+
+        // Stop any playing animations when leaving playground
+        if (view !== 'playground' && this.currentTween) {
+            this.currentTween.kill();
+            this.currentTween = null;
+            this.isPlaying = false;
         }
     }
-];
 
-const easeOptions = [
-    "power1.out", "power2.out", "power3.out", "power4.out",
-    "elastic.out(1, 0.3)", "elastic.out(1, 0.6)", "back.out(1.7)",
-    "bounce.out", "circ.out", "expo.out", "sine.out"
-];
+    setupGallery() {
+        const categoryBtns = document.querySelectorAll('.category-btn');
 
-const colorPresets = [
-    {name: "Default", value: "inherit"},
-    {name: "Electric Blue", value: "#00f5ff"},
-    {name: "Neon Green", value: "#39ff14"},
-    {name: "Hot Pink", value: "#ff1493"},
-    {name: "Gold", value: "#ffd700"},
-    {name: "Purple", value: "#8a2be2"},
-    {name: "Orange", value: "#ff6347"},
-    {name: "Cyan", value: "#00ffff"}
-];
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const category = e.target.dataset.category;
 
-const sampleTexts = [
-    "Hello World",
-    "Welcome to Textify",
-    "Amazing Text Effects",
-    "Scroll Animation",
-    "GSAP SplitText",
-    "Creative Typography",
-    "Modern Web Design",
-    "Interactive Experience"
-];
+                // Update active category
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
 
-// Global variables
-let currentStyle = animations[0];
-let splitText = null;
-let animationTl = null;
-
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded');
-    
-    // Initialize immediately
-    initializeApp();
-    
-    // Set up event listeners after a brief delay to ensure DOM is ready
-    setTimeout(function() {
-        setupEventListeners();
-        renderGallery();
-        setupPlayground();
-        setupPerformanceMonitoring();
-        generateCode();
-    }, 100);
-});
-
-function initializeApp() {
-    console.log('Initializing app');
-    
-    // Add GSAP animations if available
-    if (typeof gsap !== 'undefined') {
-        gsap.from('.header', {
-            y: -100,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out"
-        });
-        
-        gsap.from('.main', {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            delay: 0.3,
-            ease: "power3.out"
+                // Filter gallery
+                this.filterGallery(category);
+            });
         });
     }
-}
 
-function setupEventListeners() {
-    console.log('Setting up event listeners');
-    
-    // Navigation buttons
-    document.querySelectorAll('.nav-btn').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const section = this.getAttribute('data-section');
-            console.log('Navigation clicked:', section);
-            
-            if (section) {
-                showSection(section);
-                updateActiveNav(this);
+    renderGallery() {
+        const grid = document.getElementById('animationGrid');
+        if (!grid) return;
+
+        grid.innerHTML = '';
+
+        this.animations.forEach(animation => {
+            const card = document.createElement('div');
+            card.className = 'animation-card';
+            card.dataset.category = animation.category;
+
+            card.innerHTML = `
+                <h4>${animation.name}</h4>
+                <p class="description">${animation.description}</p>
+                <div class="animation-preview">
+                    <span>Sample Text</span>
+                </div>
+                <div class="category">${animation.category}</div>
+            `;
+
+            // Add click handler to switch to playground
+            card.addEventListener('click', () => {
+                this.selectAnimation(animation);
+                this.switchView('playground');
+            });
+
+            // Add preview animation on hover with proper cleanup
+            card.addEventListener('mouseenter', () => {
+                this.playPreviewAnimation(card.querySelector('.animation-preview span'), animation);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                this.stopPreviewAnimation(card.querySelector('.animation-preview span'));
+            });
+
+            grid.appendChild(card);
+        });
+    }
+
+    filterGallery(category) {
+        const cards = document.querySelectorAll('.animation-card');
+
+        cards.forEach(card => {
+            const cardCategory = card.dataset.category;
+
+            if (category === 'all' || cardCategory === category) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
             }
         });
-    });
-
-    // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const category = this.getAttribute('data-category');
-            console.log('Filter clicked:', category);
-            
-            if (category) {
-                filterGallery(category);
-                updateActiveFilter(this);
-            }
-        });
-    });
-
-    // Code tabs
-    document.querySelectorAll('.code-tab').forEach(function(tab) {
-        tab.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const tabName = this.getAttribute('data-tab');
-            console.log('Code tab clicked:', tabName);
-            
-            if (tabName) {
-                showCodeTab(tabName);
-                updateActiveTab(this);
-            }
-        });
-    });
-
-    // Playground buttons
-    const playBtn = document.getElementById('playAnimation');
-    const resetBtn = document.getElementById('resetAnimation');
-    
-    if (playBtn) {
-        playBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Play animation clicked');
-            playAnimation();
-        });
     }
-    
-    if (resetBtn) {
-        resetBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Reset animation clicked');
-            resetAnimation();
-        });
-    }
-    
-    // Control inputs
-    const controls = [
-        {id: 'styleSelect', handler: updateStyle},
-        {id: 'textSelect', handler: updateText},
-        {id: 'customText', handler: updateCustomText},
-        {id: 'durationSlider', handler: updateDuration},
-        {id: 'staggerSlider', handler: updateStagger},
-        {id: 'easeSelect', handler: updateEase},
-        {id: 'colorSelect', handler: updateColor}
-    ];
-    
-    controls.forEach(function(control) {
-        const element = document.getElementById(control.id);
-        if (element) {
-            const eventType = control.id === 'customText' ? 'input' : 'change';
-            element.addEventListener(eventType, control.handler);
+
+    playPreviewAnimation(element, animation) {
+        if (!element || !animation) return;
+
+        // Clear any existing timeout for this element
+        const existingTimeout = this.previewTimeouts.get(element);
+        if (existingTimeout) {
+            clearTimeout(existingTimeout);
         }
-    });
-}
 
-function showSection(sectionId) {
-    console.log('Showing section:', sectionId);
-    
-    // Hide all sections
-    document.querySelectorAll('.section').forEach(function(section) {
-        section.classList.remove('active');
-    });
-    
-    // Show target section
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.classList.add('active');
-        
-        // Add entrance animation
-        if (typeof gsap !== 'undefined') {
-            gsap.from(targetSection, {
-                y: 30,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power2.out"
+        // Reset element first
+        element.textContent = 'Sample Text';
+
+        try {
+            // Create split text
+            const split = new SplitType(element, { types: 'chars' });
+
+            if (split.chars && split.chars.length > 0) {
+                const opts = { duration: 0.8, stagger: 0.03, ease: 'power2.out' };
+
+                // Store the timeout reference
+                const timeout = setTimeout(() => {
+                    try {
+                        animation.buildTween(split, opts);
+                    } catch (error) {
+                        console.warn('Preview animation failed:', error);
+                    }
+                }, 100);
+
+                this.previewTimeouts.set(element, timeout);
+            }
+        } catch (error) {
+            console.warn('Preview split failed:', error);
+        }
+    }
+
+    stopPreviewAnimation(element) {
+        if (!element) return;
+
+        // Clear timeout
+        const timeout = this.previewTimeouts.get(element);
+        if (timeout) {
+            clearTimeout(timeout);
+            this.previewTimeouts.delete(element);
+        }
+
+        // Reset element
+        try {
+            gsap.killTweensOf(element.querySelectorAll('.char'));
+            gsap.set(element.querySelectorAll('.char'), { clearProps: 'all' });
+            element.textContent = 'Sample Text';
+        } catch (error) {
+            // Ignore cleanup errors
+        }
+    }
+
+    setupPlayground() {
+        const textInput = document.getElementById('textInput');
+        const colorPicker = document.getElementById('colorPicker');
+        const durationSlider = document.getElementById('durationSlider');
+        const staggerSlider = document.getElementById('staggerSlider');
+        const easeSelect = document.getElementById('easeSelect');
+        const animationSelect = document.getElementById('animationSelect');
+        const playBtn = document.getElementById('playBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        // Text input
+        if (textInput) {
+            textInput.addEventListener('input', (e) => {
+                this.updatePreviewText(e.target.value || 'Textify Animation');
+                this.generateCode();
             });
         }
-    }
-}
 
-function updateActiveNav(activeBtn) {
-    document.querySelectorAll('.nav-btn').forEach(function(btn) {
-        btn.classList.remove('active');
-    });
-    activeBtn.classList.add('active');
-}
+        // Color picker
+        if (colorPicker) {
+            colorPicker.addEventListener('change', (e) => {
+                this.updateTextColor(e.target.value);
+                this.generateCode();
+            });
+        }
 
-function renderGallery() {
-    console.log('Rendering gallery');
-    
-    const galleryGrid = document.getElementById('galleryGrid');
-    if (!galleryGrid) {
-        console.error('Gallery grid not found');
-        return;
+        // Duration slider
+        if (durationSlider) {
+            durationSlider.addEventListener('input', (e) => {
+                document.getElementById('durationValue').textContent = e.target.value;
+                this.generateCode();
+            });
+        }
+
+        // Stagger slider
+        if (staggerSlider) {
+            staggerSlider.addEventListener('input', (e) => {
+                document.getElementById('staggerValue').textContent = e.target.value;
+                this.generateCode();
+            });
+        }
+
+        // Ease select
+        if (easeSelect) {
+            easeSelect.addEventListener('change', () => {
+                this.generateCode();
+            });
+        }
+
+        // Animation select
+        if (animationSelect) {
+            animationSelect.addEventListener('change', (e) => {
+                const animationId = e.target.value;
+                const animation = this.animations.find(a => a.id === animationId);
+                if (animation) {
+                    this.selectAnimation(animation);
+                }
+            });
+        }
+
+        // Play button
+        if (playBtn) {
+            playBtn.addEventListener('click', () => {
+                this.playAnimation();
+            });
+        }
+
+        // Reset button
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                this.resetAnimation();
+            });
+        }
+
+        // Initialize playground
+        this.updatePreviewText('Textify Animation');
+        this.updateTextColor('#ffffff');
     }
-    
-    galleryGrid.innerHTML = '';
-    
-    animations.forEach(function(animation) {
-        const card = createGalleryCard(animation);
-        galleryGrid.appendChild(card);
-    });
-    
-    // Add entrance animation
-    if (typeof gsap !== 'undefined') {
-        gsap.from('.gallery-card', {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power2.out"
+
+    populateAnimationSelect() {
+        const select = document.getElementById('animationSelect');
+        if (!select) return;
+
+        select.innerHTML = '';
+
+        this.animations.forEach(animation => {
+            const option = document.createElement('option');
+            option.value = animation.id;
+            option.textContent = animation.name;
+            select.appendChild(option);
         });
     }
-}
 
-function createGalleryCard(animation) {
-    const card = document.createElement('div');
-    card.className = 'gallery-card';
-    card.setAttribute('data-category', animation.category);
-    
-    card.innerHTML = `
-        <h3>${animation.name}</h3>
-        <p>${animation.description}</p>
-        <div class="gallery-preview">
-            <div class="gallery-preview-text">Sample Text</div>
-        </div>
-        <div class="gallery-meta">
-            <span class="gallery-category">${animation.category}</span>
-            <span class="gallery-complexity">${animation.complexity}</span>
-        </div>
-    `;
-    
-    // Add click handler
-    card.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        console.log('Gallery card clicked:', animation.name);
-        
-        // Select animation
-        currentStyle = animation;
-        updateControlsFromStyle(animation);
-        generateCode();
-        
-        // Navigate to playground
-        showSection('playground');
-        updateActiveNav(document.querySelector('[data-section="playground"]'));
-    });
-    
-    return card;
-}
+    selectAnimation(animation) {
+        this.currentAnimation = animation;
+        const currentAnimationEl = document.getElementById('currentAnimation');
+        const animationSelectEl = document.getElementById('animationSelect');
 
-function filterGallery(category) {
-    console.log('Filtering gallery by:', category);
-    
-    const cards = document.querySelectorAll('.gallery-card');
-    
-    cards.forEach(function(card) {
-        const cardCategory = card.getAttribute('data-category');
-        
-        if (category === 'all' || cardCategory === category) {
-            card.style.display = 'block';
-            
-            // Add reveal animation
-            if (typeof gsap !== 'undefined') {
-                gsap.from(card, {
-                    scale: 0.8,
-                    opacity: 0,
-                    duration: 0.5,
-                    ease: "back.out(1.7)"
+        if (currentAnimationEl) {
+            currentAnimationEl.textContent = animation.name;
+        }
+
+        if (animationSelectEl) {
+            animationSelectEl.value = animation.id;
+        }
+
+        // Update split text for new animation
+        this.updateSplitText();
+        this.generateCode();
+
+        // Add auto-play functionality
+        setTimeout(() => {
+            this.playAnimation();
+        }, 100); // Small delay to ensure split text is ready
+    }
+
+    updatePreviewText(text) {
+        const previewText = document.getElementById('previewText');
+        if (previewText) {
+            previewText.textContent = text;
+            this.updateSplitText();
+        }
+    }
+
+    updateTextColor(color) {
+        const previewText = document.getElementById('previewText');
+        if (previewText) {
+            previewText.style.color = color;
+        }
+    }
+
+    updateSplitText() {
+        const previewText = document.getElementById('previewText');
+        if (!previewText) return;
+
+        // Kill existing tween
+        if (this.currentTween) {
+            this.currentTween.kill();
+            this.currentTween = null;
+        }
+
+        // Revert previous split
+        if (this.splitText && this.splitText.revert) {
+            this.splitText.revert();
+        }
+
+        // Create new split
+        try {
+            if (typeof SplitType !== 'undefined') {
+                this.splitText = new SplitType(previewText, { types: 'chars' });
+            } else {
+                // Fallback: manual character splitting
+                const text = previewText.textContent;
+                previewText.innerHTML = text.split('').map(char =>
+                    `<span class="char">${char}</span>`
+                ).join('');
+                this.splitText = { chars: previewText.querySelectorAll('.char') };
+            }
+        } catch (error) {
+            console.warn('Split text failed:', error);
+            this.splitText = { chars: [] };
+        }
+
+        this.isPlaying = false;
+    }
+
+    playAnimation() {
+        if (this.isPlaying || !this.splitText || !this.splitText.chars || this.splitText.chars.length === 0) {
+            return;
+        }
+
+        this.isPlaying = true;
+
+        // Kill existing tween
+        if (this.currentTween) {
+            this.currentTween.kill();
+        }
+
+        // Get current settings
+        const durationSlider = document.getElementById('durationSlider');
+        const staggerSlider = document.getElementById('staggerSlider');
+        const easeSelect = document.getElementById('easeSelect');
+
+        const duration = parseFloat(durationSlider ? durationSlider.value : '1.5');
+        const stagger = parseFloat(staggerSlider ? staggerSlider.value : '0.05');
+        const ease = easeSelect ? easeSelect.value : 'power2.out';
+
+        const opts = { duration, stagger, ease };
+
+        // Update play button
+        const playBtn = document.getElementById('playBtn');
+        if (playBtn) {
+            playBtn.textContent = 'Playing...';
+            playBtn.disabled = true;
+        }
+
+        try {
+            // Create and play animation
+            this.currentTween = this.currentAnimation.buildTween(this.splitText, opts);
+
+            if (this.currentTween) {
+                this.currentTween.eventCallback('onComplete', () => {
+                    if (playBtn) {
+                        playBtn.textContent = 'Play Animation';
+                        playBtn.disabled = false;
+                    }
+                    this.isPlaying = false;
                 });
             }
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-function updateActiveFilter(activeBtn) {
-    document.querySelectorAll('.filter-btn').forEach(function(btn) {
-        btn.classList.remove('active');
-    });
-    activeBtn.classList.add('active');
-}
-
-function setupPlayground() {
-    console.log('Setting up playground');
-    
-    // Populate selects
-    populateSelect('styleSelect', animations, 'id', 'name');
-    populateSelect('textSelect', sampleTexts.map(text => ({id: text, name: text})), 'id', 'name');
-    populateSelect('easeSelect', easeOptions.map(ease => ({id: ease, name: ease})), 'id', 'name');
-    populateSelect('colorSelect', colorPresets, 'value', 'name');
-    
-    // Set default values
-    updateControlsFromStyle(currentStyle);
-    initializePreview();
-}
-
-function populateSelect(selectId, options, valueKey, textKey) {
-    const select = document.getElementById(selectId);
-    if (!select) return;
-    
-    select.innerHTML = '';
-    
-    options.forEach(function(option) {
-        const optionElement = document.createElement('option');
-        optionElement.value = option[valueKey];
-        optionElement.textContent = option[textKey];
-        select.appendChild(optionElement);
-    });
-}
-
-function updateControlsFromStyle(style) {
-    console.log('Updating controls from style:', style.name);
-    
-    const elements = {
-        styleSelect: style.id,
-        durationSlider: style.defaultConfig.duration,
-        staggerSlider: style.defaultConfig.stagger,
-        easeSelect: style.defaultConfig.ease
-    };
-    
-    Object.keys(elements).forEach(function(id) {
-        const element = document.getElementById(id);
-        if (element) {
-            element.value = elements[id];
-        }
-    });
-    
-    // Update display values
-    const durationValue = document.getElementById('durationValue');
-    const staggerValue = document.getElementById('staggerValue');
-    
-    if (durationValue) durationValue.textContent = style.defaultConfig.duration;
-    if (staggerValue) staggerValue.textContent = style.defaultConfig.stagger;
-}
-
-function initializePreview() {
-    console.log('Initializing preview');
-    
-    const previewText = document.getElementById('previewText');
-    if (previewText && typeof SplitType !== 'undefined') {
-        try {
-            splitText = new SplitType(previewText, {
-                types: 'chars',
-                tagName: 'span'
-            });
-            console.log('SplitType initialized');
         } catch (error) {
-            console.warn('SplitType initialization failed:', error);
+            console.error('Animation failed:', error);
+            if (playBtn) {
+                playBtn.textContent = 'Play Animation';
+                playBtn.disabled = false;
+            }
+            this.isPlaying = false;
         }
     }
-}
 
-function playAnimation() {
-    console.log('Playing animation');
-    
-    if (animationTl) {
-        animationTl.kill();
-    }
-    
-    if (!splitText) {
-        initializePreview();
-    }
-    
-    if (!splitText || !splitText.chars) {
-        console.error('No split text available');
-        return;
-    }
-    
-    const chars = splitText.chars;
-    const duration = parseFloat(document.getElementById('durationSlider')?.value || 1.0);
-    const stagger = parseFloat(document.getElementById('staggerSlider')?.value || 0.05);
-    const ease = document.getElementById('easeSelect')?.value || 'power2.out';
-    const color = document.getElementById('colorSelect')?.value || 'inherit';
-    
-    console.log('Animation params:', {duration, stagger, ease, color});
-    
-    // Apply color
-    if (color !== 'inherit') {
-        chars.forEach(function(char) {
-            char.style.color = color;
-        });
-    }
-    
-    // Create animation
-    animationTl = createAnimation(currentStyle.id, chars, duration, stagger, ease);
-    
-    // Update performance metrics
-    updatePerformanceMetrics();
-}
+    setupCSSControls() {
+        // Font Size Control
+        const fontSizeSlider = document.getElementById('fontSizeSlider');
+        if (fontSizeSlider) {
+            fontSizeSlider.addEventListener('input', (e) => {
+                const value = e.target.value;
+                document.getElementById('fontSizeValue').textContent = `${value}px`;
+                this.updateTextStyle('fontSize', `${value}px`);
+            });
+        }
 
-function createAnimation(styleId, chars, duration, stagger, ease) {
-    console.log('Creating animation:', styleId);
-    
-    if (typeof gsap === 'undefined') {
-        console.error('GSAP not available');
-        return null;
-    }
-    
-    const tl = gsap.timeline();
-    
-    // Reset chars
-    gsap.set(chars, {
-        opacity: 1,
-        scale: 1,
-        rotation: 0,
-        x: 0,
-        y: 0,
-        skewX: 0,
-        skewY: 0,
-        rotationX: 0,
-        rotationY: 0,
-        rotationZ: 0,
-        transformOrigin: "center center"
-    });
-    
-    // Create animation based on style
-    switch(styleId) {
-        case 'style1': // Particle Explosion
-            gsap.set(chars, {
-                scale: 0,
-                rotation: function() { return Math.random() * 360; },
-                x: function() { return (Math.random() - 0.5) * 200; },
-                y: function() { return (Math.random() - 0.5) * 200; }
+        // Font Weight Control
+        const fontWeightSelect = document.getElementById('fontWeightSelect');
+        if (fontWeightSelect) {
+            fontWeightSelect.addEventListener('change', (e) => {
+                this.updateTextStyle('fontWeight', e.target.value);
             });
-            tl.to(chars, {
-                scale: 1,
-                rotation: 0,
-                x: 0,
-                y: 0,
-                duration: duration,
-                ease: ease,
-                stagger: stagger
-            });
-            break;
-            
-        case 'style2': // Explosive Zoom
-            gsap.set(chars, {
-                scale: 0,
-                rotation: function() { return Math.random() * 180 - 90; }
-            });
-            tl.to(chars, {
-                scale: 1,
-                rotation: 0,
-                duration: duration,
-                ease: ease,
-                stagger: stagger
-            });
-            break;
-            
-        case 'style3': // Wave Up
-            gsap.set(chars, {
-                y: 50,
-                opacity: 0,
-                skewX: 10
-            });
-            tl.to(chars, {
-                y: 0,
-                opacity: 1,
-                skewX: 0,
-                duration: duration,
-                ease: ease,
-                stagger: stagger
-            });
-            break;
-            
-        case 'style4': // 3D Flip
-            gsap.set(chars, {
-                rotationY: 90,
-                opacity: 0,
-                transformOrigin: "center center"
-            });
-            tl.to(chars, {
-                rotationY: 0,
-                opacity: 1,
-                duration: duration,
-                ease: ease,
-                stagger: stagger
-            });
-            break;
-            
-        case 'style5': // Bounce Scale
-            gsap.set(chars, {
-                scale: 0,
-                y: 30
-            });
-            tl.to(chars, {
-                scale: 1,
-                y: 0,
-                duration: duration,
-                ease: ease,
-                stagger: stagger
-            });
-            break;
-            
-        default:
-            // Default animation
-            gsap.set(chars, {
-                opacity: 0,
-                y: 30
-            });
-            tl.to(chars, {
-                opacity: 1,
-                y: 0,
-                duration: duration,
-                ease: ease,
-                stagger: stagger
-            });
-    }
-    
-    return tl;
-}
+        }
 
-function resetAnimation() {
-    console.log('Resetting animation');
-    
-    if (animationTl) {
-        animationTl.kill();
-    }
-    
-    if (splitText && splitText.chars) {
-        gsap.set(splitText.chars, {
-            opacity: 1,
-            scale: 1,
-            rotation: 0,
-            x: 0,
-            y: 0,
-            skewX: 0,
-            skewY: 0,
-            rotationX: 0,
-            rotationY: 0,
-            rotationZ: 0,
-            clearProps: "all"
-        });
-    }
-}
+        // Letter Spacing Control
+        const letterSpacingSlider = document.getElementById('letterSpacingSlider');
+        if (letterSpacingSlider) {
+            letterSpacingSlider.addEventListener('input', (e) => {
+                const value = e.target.value;
+                document.getElementById('letterSpacingValue').textContent = `${value}px`;
+                this.updateTextStyle('letterSpacing', `${value}px`);
+            });
+        }
 
-// Control update functions
-function updateStyle() {
-    const styleSelect = document.getElementById('styleSelect');
-    if (styleSelect) {
-        const styleId = styleSelect.value;
-        currentStyle = animations.find(function(a) { return a.id === styleId; });
-        updateControlsFromStyle(currentStyle);
-        generateCode();
-    }
-}
+        // Line Height Control
+        const lineHeightSlider = document.getElementById('lineHeightSlider');
+        if (lineHeightSlider) {
+            lineHeightSlider.addEventListener('input', (e) => {
+                const value = e.target.value;
+                document.getElementById('lineHeightValue').textContent = value;
+                this.updateTextStyle('lineHeight', value);
+            });
+        }
 
-function updateText() {
-    const textSelect = document.getElementById('textSelect');
-    const previewText = document.getElementById('previewText');
-    const customText = document.getElementById('customText');
-    
-    if (textSelect && previewText) {
-        const text = textSelect.value;
-        previewText.textContent = text;
-        if (customText) customText.value = '';
-        initializePreview();
-    }
-}
+        // Blur Control
+        const blurSlider = document.getElementById('blurSlider');
+        if (blurSlider) {
+            blurSlider.addEventListener('input', () => this.updateFilterEffects());
+        }
 
-function updateCustomText() {
-    const customText = document.getElementById('customText');
-    const previewText = document.getElementById('previewText');
-    const textSelect = document.getElementById('textSelect');
-    
-    if (customText && previewText) {
-        const text = customText.value;
-        if (text) {
-            previewText.textContent = text;
-            if (textSelect) textSelect.value = '';
-            initializePreview();
+        // Shadow Size Control
+        const shadowSizeSlider = document.getElementById('shadowSizeSlider');
+        if (shadowSizeSlider) {
+            shadowSizeSlider.addEventListener('input', () => this.updateFilterEffects());
+        }
+
+        // Shadow Color Control
+        const shadowColorPicker = document.getElementById('shadowColorPicker');
+        if (shadowColorPicker) {
+            shadowColorPicker.addEventListener('input', () => this.updateFilterEffects());
+        }
+
+        // Initialize filter effects
+        this.updateFilterEffects();
+    }
+
+    updateTextStyle(property, value) {
+        const previewText = document.getElementById('previewText');
+        if (previewText) {
+            previewText.style[property] = value;
+            this.generateCode(); // Update code preview
         }
     }
-}
 
-function updateDuration() {
-    const durationSlider = document.getElementById('durationSlider');
-    const durationValue = document.getElementById('durationValue');
-    
-    if (durationSlider && durationValue) {
-        const value = durationSlider.value;
-        durationValue.textContent = value;
-        generateCode();
+    // Add this new method to your class
+    updateFilterEffects() {
+        const previewText = document.getElementById('previewText');
+        if (!previewText) return;
+
+        const blurValue = document.getElementById('blurSlider')?.value || '0';
+        const shadowSize = document.getElementById('shadowSizeSlider')?.value || '10';
+        const shadowColor = document.getElementById('shadowColorPicker')?.value || '#ff00ff';
+
+        // Apply the filter directly to the preview text
+        const filterValue = `blur(${blurValue}px) drop-shadow(${shadowColor} 0px 0px ${shadowSize}px)`;
+        previewText.style.filter = filterValue;
+
+        // Update the display values
+        document.getElementById('blurValue').textContent = `${blurValue}px`;
+        document.getElementById('shadowSizeValue').textContent = `${shadowSize}px`;
+
+        this.generateCode();
     }
-}
 
-function updateStagger() {
-    const staggerSlider = document.getElementById('staggerSlider');
-    const staggerValue = document.getElementById('staggerValue');
-    
-    if (staggerSlider && staggerValue) {
-        const value = staggerSlider.value;
-        staggerValue.textContent = value;
-        generateCode();
+    resetAnimation() {
+        // Kill current tween
+        if (this.currentTween) {
+            this.currentTween.kill();
+            this.currentTween = null;
+        }
+
+        // Reset form values
+        const textInput = document.getElementById('textInput');
+        const colorPicker = document.getElementById('colorPicker');
+        const durationSlider = document.getElementById('durationSlider');
+        const staggerSlider = document.getElementById('staggerSlider');
+        const easeSelect = document.getElementById('easeSelect');
+        const durationValue = document.getElementById('durationValue');
+        const staggerValue = document.getElementById('staggerValue');
+
+        if (textInput) textInput.value = 'Textify Animation';
+        if (colorPicker) colorPicker.value = '#ffffff';
+        if (durationSlider) durationSlider.value = '1.5';
+        if (staggerSlider) staggerSlider.value = '0.05';
+        if (easeSelect) easeSelect.value = 'power2.out';
+        if (durationValue) durationValue.textContent = '1.5';
+        if (staggerValue) staggerValue.textContent = '0.05';
+
+        // Reset preview text
+        this.updatePreviewText('Textify Animation');
+        this.updateTextColor('#ffffff');
+
+        // Reset split text
+        this.updateSplitText();
+
+        // Reset chars if they exist
+        if (this.splitText && this.splitText.chars && typeof gsap !== 'undefined') {
+            gsap.set(this.splitText.chars, { clearProps: 'all' });
+        }
+
+        // Reset button states
+        const playBtn = document.getElementById('playBtn');
+        if (playBtn) {
+            playBtn.textContent = 'Play Animation';
+            playBtn.disabled = false;
+        }
+        this.isPlaying = false;
+
+        // Reset CSS controls
+        const fontSizeSlider = document.getElementById('fontSizeSlider');
+        const fontWeightSelect = document.getElementById('fontWeightSelect');
+        const letterSpacingSlider = document.getElementById('letterSpacingSlider');
+        const lineHeightSlider = document.getElementById('lineHeightSlider');
+
+        if (fontSizeSlider) {
+            fontSizeSlider.value = '56';
+            document.getElementById('fontSizeValue').textContent = '56px';
+        }
+        if (fontWeightSelect) fontWeightSelect.value = '600';
+        if (letterSpacingSlider) {
+            letterSpacingSlider.value = '0';
+            document.getElementById('letterSpacingValue').textContent = '0px';
+        }
+        if (lineHeightSlider) {
+            lineHeightSlider.value = '1.2';
+            document.getElementById('lineHeightValue').textContent = '1.2';
+        }
+
+        // Reset preview text styles
+        const previewText = document.getElementById('previewText');
+        // Reset filter controls with new defaults
+        const blurSlider = document.getElementById('blurSlider');
+        const shadowSizeSlider = document.getElementById('shadowSizeSlider');
+        const shadowColorPicker = document.getElementById('shadowColorPicker');
+
+        if (blurSlider) {
+            blurSlider.value = '10'; // Reset to 10px
+            document.getElementById('blurValue').textContent = '10px';
+        }
+        if (shadowSizeSlider) {
+            shadowSizeSlider.value = '10'; // Reset to 10px
+            document.getElementById('shadowSizeValue').textContent = '10px';
+        }
+        if (shadowColorPicker) {
+            shadowColorPicker.value = '#ff00ff';
+        }
+        if (previewText) {
+            previewText.style.fontSize = '56px';
+            previewText.style.fontWeight = '600';
+            previewText.style.letterSpacing = '0px';
+            previewText.style.lineHeight = '1.2';
+            previewText.style.filter = 'blur(10px) drop-shadow(#ff00ff 0px 0px 10px)';
+        }
+
+        // Regenerate code
+        this.generateCode();
     }
-}
 
-function updateEase() {
-    generateCode();
-}
+    setupCode() {
+        const codeTabs = document.querySelectorAll('.code-tab');
+        const copyBtn = document.getElementById('copyBtn');
 
-function updateColor() {
-    generateCode();
-}
+        codeTabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const codeType = e.target.dataset.code;
 
-function generateCode() {
-    console.log('Generating code');
-    
-    const duration = document.getElementById('durationSlider')?.value || '1.0';
-    const stagger = document.getElementById('staggerSlider')?.value || '0.05';
-    const ease = document.getElementById('easeSelect')?.value || 'power2.out';
-    const color = document.getElementById('colorSelect')?.value || 'inherit';
-    const text = document.getElementById('previewText')?.textContent || 'Hello World';
-    
-    // HTML Code
-    const htmlCode = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Textify Animation</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1 class="animated-text">${text}</h1>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>`;
-    
-    // CSS Code
-    const cssCode = `.container {
+                // Update active tab
+                codeTabs.forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+
+                // Update code display
+                this.currentCodeType = codeType;
+                this.generateCode();
+            });
+        });
+
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                this.copyCode();
+            });
+        }
+    }
+
+    generateCode() {
+        const codeBlock = document.getElementById('codeBlock');
+        const codeTitle = document.getElementById('codeTitle');
+
+        if (!codeBlock || !codeTitle) return;
+
+        const textInput = document.getElementById('textInput');
+        const colorPicker = document.getElementById('colorPicker');
+        const durationSlider = document.getElementById('durationSlider');
+        const staggerSlider = document.getElementById('staggerSlider');
+        const easeSelect = document.getElementById('easeSelect');
+
+        const text = textInput ? textInput.value : 'Textify Animation';
+        const color = colorPicker ? colorPicker.value : '#ffffff';
+        const duration = durationSlider ? durationSlider.value : '1.5';
+        const stagger = staggerSlider ? staggerSlider.value : '0.05';
+        const ease = easeSelect ? easeSelect.value : 'power2.out';
+
+        let code = '';
+
+        switch (this.currentCodeType) {
+            case 'html':
+                code = `<div class="textify-container">
+    <div class="textify-text" id="textify">${text}</div>
+</div>`;
+                codeTitle.textContent = 'HTML';
+                break;
+
+            case 'css':
+                const blurValue = document.getElementById('blurSlider')?.value || '0';
+                const shadowSize = document.getElementById('shadowSizeSlider')?.value || '10';
+                const shadowColor = document.getElementById('shadowColorPicker')?.value || '#ff00ff';
+                code = `.textify-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    font-family: Arial, sans-serif;
+    min-height: 400px;
+    perspective: 1000px;
 }
 
-.animated-text {
-    font-size: 3rem;
-    font-weight: bold;
-    color: ${color !== 'inherit' ? color : '#ffffff'};
+.textify-text {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: ${color};
     text-align: center;
     line-height: 1.2;
+    filter: blur(${blurValue}px) drop-shadow(${shadowColor} 0px 0px ${shadowSize}px);
 }
 
 .char {
     display: inline-block;
+}
+
+/* Special styles for ${this.currentAnimation.name} */
+${this.currentAnimation.id === 'style20' ? '.glow-trail { filter: blur(4px) drop-shadow(0 0 20px magenta); }' : ''}
+${this.currentAnimation.id === 'style13' ? '.matrix-fall { filter: grayscale(100%); }' : ''}
+${this.currentAnimation.id === 'style11' ? '.flare-burst { filter: brightness(200%); }' : ''}
+${this.currentAnimation.id === 'style15' ? '.pulse-glow { filter: drop-shadow(0 0 10px cyan); }' : ''}
+${this.currentAnimation.id === 'style23' ? '.neon-flicker { filter: drop-shadow(0 0 5px #00ff88) brightness(150%); }' : ''}
+${this.currentAnimation.id === 'style25' ? '.holographic-shift { filter: hue-rotate(180deg) saturate(150%); }' : ''}
+${this.currentAnimation.id === 'style26' ? '.glitch-matrix { filter: contrast(150%) brightness(120%); }' : ''}
+${this.currentAnimation.id === 'style31' ? '.vintage-fade { filter: sepia(100%) contrast(120%) brightness(90%); }' : ''}
+${this.currentAnimation.id === 'style32' ? '.cyber-grid { filter: drop-shadow(0 0 8px cyan) contrast(150%); }' : ''}`;
+                codeTitle.textContent = 'CSS';
+                break;
+
+            case 'js':
+                code = `// ${this.currentAnimation.name} Animation
+const textElement = document.getElementById('textify');
+
+// Create split text
+const split = new SplitType(textElement, { types: 'chars' });
+
+// Animation function
+function animate${this.currentAnimation.id}(split) {
+    const chars = split.chars;
+    
+    // Set initial state
+    gsap.set(chars, {
+        opacity: 0
+        // Animation-specific initial properties
+    });
+    
+    // Create animation
+    return gsap.to(chars, {
+        opacity: 1,
+        duration: ${duration},
+        ease: '${ease}',
+        stagger: ${stagger}
+    });
+}
+
+// Play animation
+const tween = animate${this.currentAnimation.id}(split);
+
+// Control functions
+function playAnimation() {
+    tween.restart();
+}
+
+function resetAnimation() {
+    tween.kill();
+    gsap.set(split.chars, { clearProps: 'all' });
 }`;
-    
-    // JavaScript Code
-    const jsCode = `// Initialize the animation
-document.addEventListener('DOMContentLoaded', function() {
-    const text = document.querySelector('.animated-text');
-    
-    // Split text into characters
-    const splitText = new SplitType(text, {
-        types: 'chars',
-        tagName: 'span'
-    });
-    
-    const chars = splitText.chars;
-    
-    // Create animation timeline
-    const tl = gsap.timeline();
-    
-    // ${currentStyle.name} Animation
-    ${getAnimationCode(currentStyle.id, duration, stagger, ease)}
-    
-    // Play animation
-    tl.play();
-});`;
-    
-    // Update code panels
-    updateCodePanel('htmlCodeContent', htmlCode);
-    updateCodePanel('cssCodeContent', cssCode);
-    updateCodePanel('jsCodeContent', jsCode);
-    
-    // Re-highlight syntax
-    if (window.Prism) {
-        Prism.highlightAll();
+                codeTitle.textContent = 'JavaScript';
+                break;
+        }
+
+        codeBlock.innerHTML = `<code>${this.escapeHtml(code)}</code>`;
     }
-}
 
-function updateCodePanel(elementId, content) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.textContent = content;
-    }
-}
+    copyCode() {
+        const codeBlock = document.getElementById('codeBlock');
+        const copyBtn = document.getElementById('copyBtn');
 
-function getAnimationCode(styleId, duration, stagger, ease) {
-    const animationCodes = {
-        'style1': `    // Set initial state
-    gsap.set(chars, {
-        scale: 0,
-        rotation: () => Math.random() * 360,
-        x: () => (Math.random() - 0.5) * 200,
-        y: () => (Math.random() - 0.5) * 200
-    });
-    
-    // Animate to final state
-    tl.to(chars, {
-        scale: 1,
-        rotation: 0,
-        x: 0,
-        y: 0,
-        duration: ${duration},
-        ease: "${ease}",
-        stagger: ${stagger}
-    });`,
-        'style2': `    // Set initial state
-    gsap.set(chars, {
-        scale: 0,
-        rotation: () => Math.random() * 180 - 90
-    });
-    
-    // Animate to final state
-    tl.to(chars, {
-        scale: 1,
-        rotation: 0,
-        duration: ${duration},
-        ease: "${ease}",
-        stagger: ${stagger}
-    });`,
-        'style3': `    // Set initial state
-    gsap.set(chars, {
-        y: 50,
-        opacity: 0,
-        skewX: 10
-    });
-    
-    // Animate to final state
-    tl.to(chars, {
-        y: 0,
-        opacity: 1,
-        skewX: 0,
-        duration: ${duration},
-        ease: "${ease}",
-        stagger: ${stagger}
-    });`
-    };
-    
-    return animationCodes[styleId] || `    // Set initial state
-    gsap.set(chars, {
-        opacity: 0,
-        y: 30
-    });
-    
-    // Animate to final state
-    tl.to(chars, {
-        opacity: 1,
-        y: 0,
-        duration: ${duration},
-        ease: "${ease}",
-        stagger: ${stagger}
-    });`;
-}
+        if (!codeBlock) return;
 
-function showCodeTab(tabName) {
-    console.log('Showing code tab:', tabName);
-    
-    document.querySelectorAll('.code-panel').forEach(function(panel) {
-        panel.classList.remove('active');
-    });
-    
-    const targetPanel = document.getElementById(tabName + 'Code');
-    if (targetPanel) {
-        targetPanel.classList.add('active');
-    }
-}
+        const code = codeBlock.textContent;
 
-function updateActiveTab(activeTab) {
-    document.querySelectorAll('.code-tab').forEach(function(tab) {
-        tab.classList.remove('active');
-    });
-    activeTab.classList.add('active');
-}
-
-function copyCode(panelId) {
-    console.log('Copying code from:', panelId);
-    
-    const codeElement = document.querySelector('#' + panelId + ' code');
-    if (codeElement) {
-        const text = codeElement.textContent;
-        
-        navigator.clipboard.writeText(text).then(function() {
-            // Show success feedback
-            const copyBtn = document.querySelector('#' + panelId + ' .copy-btn');
+        navigator.clipboard.writeText(code).then(() => {
             if (copyBtn) {
-                const originalText = copyBtn.textContent;
                 copyBtn.textContent = 'Copied!';
-                copyBtn.style.background = '#39ff14';
-                copyBtn.style.color = '#000';
-                
-                setTimeout(function() {
-                    copyBtn.textContent = originalText;
-                    copyBtn.style.background = '';
-                    copyBtn.style.color = '';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy Code';
+                }, 2000);
+            }
+        }).catch(err => {
+            console.error('Failed to copy code:', err);
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = code;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            if (copyBtn) {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy Code';
                 }, 2000);
             }
         });
     }
-}
 
-function setupPerformanceMonitoring() {
-    console.log('Setting up performance monitoring');
-    
-    let frameCount = 0;
-    let lastTime = performance.now();
-    
-    function updateFPS() {
-        const now = performance.now();
-        frameCount++;
-        
-        if (now - lastTime >= 1000) {
-            const fps = Math.round(frameCount * 1000 / (now - lastTime));
-            const fpsMetric = document.getElementById('fpsMetric');
-            if (fpsMetric) {
-                fpsMetric.textContent = fps;
-            }
-            frameCount = 0;
-            lastTime = now;
-        }
-        
-        requestAnimationFrame(updateFPS);
-    }
-    
-    updateFPS();
-}
+    setupDownload() {
+        const downloadBtn = document.getElementById('downloadBtn');
 
-function updatePerformanceMetrics() {
-    console.log('Updating performance metrics');
-    
-    const duration = document.getElementById('durationSlider')?.value || '1.0';
-    const elementCount = document.getElementById('previewText')?.textContent.length || 0;
-    
-    const durationMetric = document.getElementById('durationMetric');
-    const elementMetric = document.getElementById('elementMetric');
-    const memoryMetric = document.getElementById('memoryMetric');
-    
-    if (durationMetric) durationMetric.textContent = duration;
-    if (elementMetric) elementMetric.textContent = elementCount;
-    if (memoryMetric) {
-        const memoryUsage = (elementCount * 0.2 + parseFloat(duration) * 0.5).toFixed(1);
-        memoryMetric.textContent = memoryUsage;
-    }
-}
-
-// Download functions
-function downloadCSS() {
-    console.log('Downloading CSS');
-    const cssContent = document.getElementById('cssCodeContent')?.textContent || '';
-    downloadFile('styles.css', cssContent);
-}
-
-function downloadDocs() {
-    console.log('Downloading docs');
-    const docs = generateDocumentation();
-    downloadFile('textify-docs.md', docs);
-}
-
-function downloadPackage() {
-    console.log('Downloading package');
-    const packageInfo = {
-        name: "textify-gsap-plugin",
-        version: "1.0.4",
-        description: "Professional GSAP SplitText animation plugin with 20 stunning effects",
-        files: [
-            "textify.js",
-            "textify.css",
-            "README.md",
-            "package.json",
-            "examples/"
-        ]
-    };
-    
-    downloadFile('package-info.json', JSON.stringify(packageInfo, null, 2));
-}
-
-function downloadFile(filename, content) {
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-}
-
-function generateDocumentation() {
-    return `# Textify - GSAP SplitText Animation Plugin
-
-## Overview
-Textify is a professional GSAP SplitText animation plugin featuring 20 stunning text effects.
-
-## Installation
-\`\`\`html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://unpkg.com/split-type"></script>
-<script src="textify.js"></script>
-\`\`\`
-
-## Usage
-\`\`\`javascript
-const text = document.querySelector('.animated-text');
-const splitText = new SplitType(text, { types: 'chars' });
-const chars = splitText.chars;
-
-// Create animation
-const tl = gsap.timeline();
-// Add your animation code here
-\`\`\`
-
-## Animation Styles
-${animations.map(function(anim) { return '- **' + anim.name + '**: ' + anim.description; }).join('\n')}
-
-## Configuration Options
-- duration: Animation duration in seconds
-- stagger: Delay between character animations
-- ease: GSAP easing function
-- color: Text color override
-
-## License
-MIT License - Free for commercial use
-`;
-}
-
-// Initialize performance chart
-function initializePerformanceChart() {
-    console.log('Initializing performance chart');
-    
-    const canvas = document.getElementById('performanceChart');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    let data = [];
-    
-    function drawChart() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.strokeStyle = '#00f5ff';
-        ctx.lineWidth = 2;
-        
-        if (data.length > 1) {
-            ctx.beginPath();
-            data.forEach(function(point, index) {
-                const x = (index / data.length) * canvas.width;
-                const y = canvas.height - (point / 100) * canvas.height;
-                
-                if (index === 0) {
-                    ctx.moveTo(x, y);
-                } else {
-                    ctx.lineTo(x, y);
-                }
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', () => {
+                // Create a mock download
+                const blob = new Blob([this.generatePluginCode()], { type: 'application/javascript' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'textify.js';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
             });
-            ctx.stroke();
+        }
+    }
+
+    generatePluginCode() {
+        return `/**
+ * Textify Playground Application
+ * Version: 2.0.0
+ * 
+ * Features 36 professional text animation styles:
+ * - Original styles (1-20)
+ * - New artistic effects (21-25)
+ * - Digital effects (26-30)
+ * - Vintage and modern styles (31-36)
+ */
+
+class Textify {
+    constructor(element, options = {}) {
+        this.element = typeof element === 'string' ? document.querySelector(element) : element;
+        this.options = {
+            style: 'style1',
+            duration: 1.5,
+            stagger: 0.05,
+            ease: 'power2.out',
+            ...options
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        if (!this.element) return;
+        
+        // Create split text
+        this.split = new SplitType(this.element, { types: 'chars' });
+        
+        // Apply animation
+        this.animate();
+    }
+    
+    animate() {
+        // Get animation by style
+        const animationMap = {
+            style1: this.particleExplosion,
+            style2: this.explosiveZoom,
+            style3: this.waveUp,
+            style4: this.flip3D,
+            style5: this.bounceScale,
+            style6: this.spiralZoom,
+            style7: this.stretchLeft,
+            style8: this.floatParticles,
+            style9: this.typewriter,
+            style10: this.magneticPull,
+            style11: this.flareBurst,
+            style12: this.rippleWave,
+            style13: this.matrixFall,
+            style14: this.flipCarousel,
+            style15: this.pulseGlow,
+            style16: this.staggerZoom,
+            style17: this.waveFold,
+            style18: this.sineSpray,
+            style19: this.grid3D,
+            style20: this.glowTrail,
+            style21: this.glowTrailSmall,
+            style22: this.morphingText,
+            style23: this.neonFlicker,
+            style24: this.liquidWave,
+            style25: this.holographicShift,
+            style26: this.glitchMatrix,
+            style27: this.cinematicReveal,
+            style28: this.floatingLetters,
+            style29: this.digitalScan,
+            style30: this.particleStorm,
+            style31: this.vintageFade,
+            style32: this.cyberGrid,
+            style33: this.elasticBounce,
+            style34: this.prismSplit,
+            style35: this.smokeReveal,
+            style36: this.quantumShift
+        };
+        
+        const animationFunc = animationMap[this.options.style];
+        if (animationFunc) {
+            this.tween = animationFunc.call(this);
         }
     }
     
-    function updateChart() {
-        const fpsElement = document.getElementById('fpsMetric');
-        const fps = fpsElement ? parseInt(fpsElement.textContent) : 60;
-        data.push(fps);
+    particleExplosion() {
+        const chars = this.split.chars;
+        gsap.set(chars, {
+            x: () => gsap.utils.random(-800, 800),
+            y: () => gsap.utils.random(-800, 800),
+            rotation: () => gsap.utils.random(-360, 360),
+            scale: () => gsap.utils.random(0.2, 2),
+            opacity: 0
+        });
         
-        if (data.length > 100) {
-            data.shift();
-        }
-        
-        drawChart();
-        requestAnimationFrame(updateChart);
+        return gsap.to(chars, {
+            x: 0, y: 0, rotation: 0, scale: 1, opacity: 1,
+            duration: this.options.duration,
+            ease: this.options.ease,
+            stagger: { amount: this.options.stagger * chars.length, from: 'random' }
+        });
     }
     
-    updateChart();
+    // Additional animation methods would be included here...
+    
+    play() {
+        if (this.tween) {
+            this.tween.restart();
+        }
+    }
+    
+    reset() {
+        if (this.tween) {
+            this.tween.kill();
+        }
+        if (this.split && this.split.chars) {
+            gsap.set(this.split.chars, { clearProps: 'all' });
+        }
+    }
+    
+    destroy() {
+        this.reset();
+        if (this.split && this.split.revert) {
+            this.split.revert();
+        }
+    }
 }
 
-// Initialize chart when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(initializePerformanceChart, 1000);
+// Export for use
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Textify;
+} else {
+    window.Textify = Textify;
+}`;
+    }
+
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+}
+
+// Initialize the application when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new TextifyPlayground();
 });
 
-// Make functions available globally for HTML onclick handlers
-window.copyCode = copyCode;
-window.downloadCSS = downloadCSS;
-window.downloadDocs = downloadDocs;
-window.downloadPackage = downloadPackage;
+// Initialize Prism after DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAll();
+    }
+});

@@ -1,6 +1,6 @@
 {
   "name": "textify-gsap",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "type": "module",
   "main": "dist/textify.min.js",
   "module": "dist/textify.esm.js",

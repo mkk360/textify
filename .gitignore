@@ -1,2 +1,9 @@
-node_modules
-ignore.md
+# Ignore the 'node_modules' folder
+node_modules/
+
+# Ignore all 'log' folders anywhere in the project
+log/
+
+rollup.config.js
+
+src/
