@@ -14,6 +14,7 @@
 ```bash
 npm install textify-gsap
 ```
+OR,
 
 ### CDN
 
