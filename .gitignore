@@ -1,9 +1,10 @@
 node_modules/
 **/log/
 build/
-src/
 docs/
 publish.md
 PACKAGE-SUMMARY.md
 CONTRIBUTING.md
 update-version.js
+# Local Netlify folder
+.netlify

@@ -299,7 +299,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🔗 Links
 
-- [🌐 Live Demo](https://textify-demo.netlify.app/)
+- [🌐 Live Demo](https://textify-gsap.netlify.app/)
 - [📚 Documentation](https://textify-docs.netlify.app/)
 - [🎮 Playground](https://codepen.io/collection/textify)
 - [💬 Discord Community](https://discord.gg/textify)
