@@ -8,3 +8,5 @@ npm version major # for 3.0.0
 npm version patch
 npm version minor
 npm version major
+
+npm pkg get version
