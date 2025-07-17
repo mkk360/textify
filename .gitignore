@@ -1,11 +1,24 @@
+# Ignore node_modules anywhere
 node_modules/
+
+# Ignore any log folder anywhere
 **/log/
+
+# Ignore dist, build, src, docs folders anywhere
 dist/
 build/
 src/
 docs/
-publish.md
-PACKAGE-SUMMARY.md
-CONTRIBUTING.md
-rollup.config.js
-update-version.js
+
+# Alternatively, ignore globally
+**/dist/
+**/build/
+**/src/
+**/docs/
+
+# Ignore specific files at any level
+**/publish.md
+**/PACKAGE-SUMMARY.md
+**/CONTRIBUTING.md
+**/rollup.config.js
+**/update-version.js
