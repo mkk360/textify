@@ -1,14 +1,21 @@
-# Ignore the 'node_modules' folder
+# Node modules
 node_modules/
 
-# Ignore all 'log' folders anywhere in the project
-log/
+# All log folders anywhere in the project
+**/log/
 
+# Build / Dist folders
+dist/
+build/
+
+# Config files
 rollup.config.js
 
+# Source and Docs (if not needed in repo)
 src/
 docs/
 
+# Markdown and other files to ignore
 publish.md
 PACKAGE-SUMMARY.md
 CONTRIBUTING.md
