@@ -10,3 +10,5 @@ npm version minor
 npm version major
 
 npm pkg get version
+
+npm run update-version 3.0.0
