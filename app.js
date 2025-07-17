@@ -1,7 +1,6 @@
 /**
  * Textify Playground Application
- * Version: 2.0.1
- * 
+ * const Version = "4.0.0";
  * Features 36 professional text animation styles:
  * - Original styles (1-20)
  * - New artistic effects (21-25)
