@@ -1,6 +1,6 @@
 /**
  * Textify Playground Application
- * Version: 2.0.0
+ * Version: 2.0.1
  * 
  * Features 36 professional text animation styles:
  * - Original styles (1-20)
@@ -1677,7 +1677,7 @@ function resetAnimation() {
     generatePluginCode() {
         return `/**
  * Textify Playground Application
- * Version: 2.0.0
+ * Version: 2.0.1
  * 
  * Features 36 professional text animation styles:
  * - Original styles (1-20)

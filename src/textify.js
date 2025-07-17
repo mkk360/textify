@@ -1,5 +1,5 @@
 /*************************************************************************
- *  Textify v1.1.0 – Enhanced Universal Text Animation Library           *
+ *  Textify v2.0.1 – Enhanced Universal Text Animation Library           *
  *  https://github.com/mkk360/textify                                    *
  *  Copyright © 2025 mkk360 – MIT License                                *
  *                                                                       *
@@ -521,7 +521,7 @@
     // 6. Public API Methods
     // ---------------------------------------------------
     const Textify = {
-        version: '1.0.4',
+        version: '2.0.1',
 
         /**
          * Initialize and auto-animate all matching elements.
