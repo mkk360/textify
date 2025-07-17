@@ -7,3 +7,9 @@ log/
 rollup.config.js
 
 src/
+docs/
+
+publish.md
+PACKAGE-SUMMARY.md
+CONTRIBUTING.md
+update-version.js

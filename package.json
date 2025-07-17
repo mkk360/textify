@@ -24,7 +24,8 @@
     "prepare": "npm run build",
     "demo": "http-server examples/",
     "docs": "jsdoc src/ -d docs/",
-    "release": "npm run build && npm run test && npm publish"
+    "release": "npm run build && npm run test && npm publish",
+    "update-version": "node update-version.js"
   },
   "description": "Advanced GSAP SplitText Animation Plugin with 20+ stunning text animation styles",
   "keywords": [
