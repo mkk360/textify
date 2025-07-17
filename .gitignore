@@ -1,10 +1,11 @@
 node_modules/
 **/log/
+dist/
 build/
+src/
 docs/
 publish.md
 PACKAGE-SUMMARY.md
 CONTRIBUTING.md
+rollup.config.js
 update-version.js
-# Local Netlify folder
-.netlify
